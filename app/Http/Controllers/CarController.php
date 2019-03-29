@@ -20,7 +20,7 @@ class CarController extends Controller
     }
     public function showCarColors(Car $car){
         $insideColor=InsideColor::where('id',request('inside_color_id'))->first();
-        $outsideColor=OutsideColor::where('id',request('outside_color_id'))->first();   
+        $outsideColor=OutsideColor::where('id',request('outside_color_id'))->first();
         
         return view('showColors',['car'=>$car,'inside_color'=>$insideColor,'outside_color' =>$outsideColor]);
     }

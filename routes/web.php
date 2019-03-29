@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('/cars','CarController@index');
@@ -24,3 +24,7 @@ Route::post('cars/{car}/decision','DecisionController@addDecision');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/decisions','DecisionController@index');
+Route::get('/decisions/{decision}','DecisionController@showDecision');

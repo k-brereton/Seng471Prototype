@@ -14,4 +14,10 @@ class Decision extends Model
         $decision->outside_color_id=$outsideId;
         return $decision;
     }
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+    public function car(){
+        return $this->belongsTo('App\Car');
+    }
 }

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Decision;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,5 +38,8 @@ class User extends Authenticatable
     ];
     public function decisions(){
         return $this->hasMany('App\Decision');
+    }
+    public function madeDecision(Decision $dec){
+        return $dec->user_id == $this->id;
     }
 }
