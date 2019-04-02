@@ -8,5 +8,8 @@ show decisions
 <a href="/decisions/{{$decision->id}}"><h1>{{$decision->car->name}}</h1></a>
 
 
+
 @endforeach
+<a href="/">main menu</a>
+
 @endsection
