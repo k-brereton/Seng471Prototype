@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,6 +18,81 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+
+    button{
+      margin-left: 25px;
+    }
+
+    .carChoice{
+      margin: 15px;
+      padding: 10px;
+      height: 30%;
+      padding: 10px;
+      float: left;
+      width: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carChoice img
+    {
+      width: 500px;
+      height: 300px;
+      border: 3px solid white;
+    }
+
+    .carInfo
+    {
+      position: absolute;
+      top: 3;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(29, 106, 154, 0.72);
+      color: white;
+      visibility: hidden;
+      opacity: 0;
+      font-size: 50px;
+      font-weight: 600;
+      transition: opacity .2s, visibility .2s;
+      letter-spacing: .1rem;
+      font-family: 'Nunito', sans-serif;
+      height: 25%;
+    }
+
+    .carChoice:hover .carInfo
+    {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .carEntry img
+    {
+      border: 6px solid lightblue;
+      margin: 15px;
+      padding: 10px;
+      height: 300px;
+      padding: 10px;
+      float: left;
+      width: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bookEntry p
+    {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .m-b-md {
+        margin-bottom: 30px;
+    }
+    </style>
 </head>
 <body>
     <div id="app">

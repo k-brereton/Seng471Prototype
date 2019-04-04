@@ -1,9 +1,23 @@
 @extends('layouts.app')
 
+@section('title')
+Vehicle Selection
+@endsection
+
 @section('content')
-<a href="/home" > <h1> back to main menu</h1></a>
-    @foreach($cars as $car)
-<a href='/cars/{{$car->id}}'>{{$car->name}}</a>
-    <img src={{$car->outside_colors->first()->image_url}}/>
-    @endforeach
+
+<button type="button" class="btn btn-primary" onclick="window.location= '{{ url("home") }}'">
+    Back to Main Menu
+</button>
+
+<div>
+  @foreach($cars as $car)
+  <div class="carChoice">
+    <a href='/cars/{{$car->id}}'>
+    <img src={{$car->outside_colors->first()->image_url}} alt={{$car->name}}/>
+    <p class="carInfo"> {{$car->name}} </p>
+    </a>
+  </div>
+  @endforeach
+</div>
 @endsection
