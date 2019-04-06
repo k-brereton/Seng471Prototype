@@ -1,19 +1,35 @@
 @extends('layouts.app')
 
+@section('title')
+View Vehicle
+@endsection
+
 @section('content')
-<a href='/cars/{{$car->id}}'>back to car</a>
-<img src="{{$inside_color->image_url}}">
-<img src="{{$outside_color->image_url}}">
 
+<button type="button" class="btn btn-primary" onclick="window.location= '{{ url("/cars/$car->id") }}'">
+    Back to Car
+</button>
 
-<h1>final decision?</h1>
+<div>
+  <div class="carView">
+    <img src="{{$outside_color->image_url}}">
+  </div>
+
+  <div class="carView">
+    <img src="{{$inside_color->image_url}}">
+  </div>
+</div>
+
+<?php // TODO: Put buttons side by side?>
+<?php // TODO: Hover over outside image and see inside image?>
+
 <form action="/cars/{{$car->id}}/decision" method="post">
     {{csrf_field()}}
-<input type="hidden" value="{{$inside_color->id}}" name="inside_color_id">
-<input type="hidden" value="{{$outside_color->id}}" name="outside_color_id">
-
-<input type="submit">
-    
+    <input type="hidden" value="{{$inside_color->id}}" name="inside_color_id">
+    <input type="hidden" value="{{$outside_color->id}}" name="outside_color_id">
+    <button type="submit" class="btn btn-primary">
+        I Want This Combination!
+    </button>
 </form>
 
 @endsection

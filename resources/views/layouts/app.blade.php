@@ -24,6 +24,8 @@
       margin-left: 25px;
     }
 
+    /*----------- Used on allCars view -----------*/
+
     .carChoice{
       margin: 15px;
       padding: 10px;
@@ -67,12 +69,12 @@
       opacity: 1;
     }
 
-    .carEntry img
-    {
-      border: 6px solid lightblue;
+    /*----------- Used on showColors view -----------*/
+
+    .carView{
       margin: 15px;
       padding: 10px;
-      height: 300px;
+      height: 30%;
       padding: 10px;
       float: left;
       width: auto;
@@ -80,14 +82,14 @@
       position: relative;
     }
 
-    .bookEntry p
+    .carView img
     {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      width: 500px;
+      height: 300px;
+      border: 3px solid white;
     }
+
+
 
     .m-b-md {
         margin-bottom: 30px;
