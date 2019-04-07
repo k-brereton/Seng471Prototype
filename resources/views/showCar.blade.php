@@ -4,17 +4,23 @@
 Choose Colors
 @endsection
 
-@section('content')
 
+@push('head')
 <script>
 function toggleInteriorColor(x)
 {
-  // x.style.color = black;
-  // x.style.border = 4px solid black;
+//   x.style.color = black;
+//   x.style.border = 4px solid black;
   // document.getElementById(document.getElementById("inside_color_id").innerHTML).border = 2px solid black;
-  document.getElementById("red").innerHTML = clicked;
+  document.getElementById("red").innerHTML = 'clicked';
 }
 </script>
+
+@endpush
+
+@section('content')
+
+
 
 <button type="button" class="btn btn-primary" onclick="window.location= '{{ url("cars") }}'">
     Go Back

@@ -113,6 +113,7 @@
         margin-bottom: 30px;
     }
     </style>
+    @stack('head')
 </head>
 <body>
     <div id="app">
