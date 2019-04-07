@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="functionality.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -89,7 +90,24 @@
       border: 3px solid white;
     }
 
+    /*----------- Used on showCar view -----------*/
 
+    .colorButton
+    {
+      border:2px solid black;
+      color: white;
+      padding: 32px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    .palette
+    {
+      float: left;
+    }
 
     .m-b-md {
         margin-bottom: 30px;
