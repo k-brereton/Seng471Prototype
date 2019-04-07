@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
+<?php // TODO: Get rid of Laravel in the corner ?>
+
+@section('title')
+Show Decisions
+@endsection
+
 @section('content')
-<a href="/home" ><h1> back to main menu</h1></a>
 
-show decisions
-@foreach($decisions as $decision)
-<a href="/decisions/{{$decision->id}}"><h1>{{$decision->car->name}}</h1></a>
+<button type="button" class="btn btn-primary" onclick="window.location= '{{ url("home") }}'">
+    Back to Main Menu
+</button>
 
-
-
-@endforeach
-<a href="/">main menu</a>
-
+  @foreach($decisions as $decision)
+    <a href="/decisions/{{$decision->id}}"><h1>{{$decision->car->name}}</h1></a>
+  @endforeach
 @endsection

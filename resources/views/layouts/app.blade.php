@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="functionality.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,10 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <style>
 
     button{
       margin-left: 25px;
+    }
+
+    /*----------- Used on home view -----------*/
+
+    .homeTitles
+    {
+      position: relative;
+      font-size: 84px;
+      color: #636b6f;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 200;
+      text-align: center;
     }
 
     /*----------- Used on allCars view -----------*/
@@ -31,7 +43,6 @@
       margin: 15px;
       padding: 10px;
       height: 30%;
-      padding: 10px;
       float: left;
       width: auto;
       overflow: hidden;
@@ -106,14 +117,21 @@
 
     .palette
     {
-      float: left;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
     .m-b-md {
         margin-bottom: 30px;
     }
     </style>
+
     @stack('head')
+
 </head>
 <body>
     <div id="app">

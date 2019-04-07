@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<?php // TODO: Get rid of Laravel in the corner ?>
+
 @section('title')
 View Vehicle
 @endsection
