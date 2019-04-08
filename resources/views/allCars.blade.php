@@ -12,8 +12,6 @@ Vehicle Selection
     Back to Main Menu
 </button>
 
-<?php // TODO: Disable all links but the Range Rover?>
-
 <div>
   @foreach($cars as $car)
   <div class="carChoice">

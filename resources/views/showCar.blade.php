@@ -8,19 +8,18 @@ Choose Colors
 
 @push('head')
 
-<?php // TODO: THIS FUCKIGN FUNCTIONALITY ?>
-<script>
+<script type="text/javascript">
 function toggleInteriorColor(x)
 {
-  x.style.border = 4px solid black;
-  document.getElementById(document.getElementById("inside_color_id").innerHTML).border = 2px solid black;
-  document.getElementById("inside_color_id").innerHTML = x.id;
-  document.getElementById("info").innerHTML = x.id;
+  x.style.border = "4px solid black";
+
+  <?php // TODO: Why doesn't this work plz kill me ?>
+  document.getElementByName(document.getElementByName('inside_color_id').innerHTML).border = "2px solid black";
+  document.getElementByName('inside_color_id').innerHTML = x.id;
+  document.getElementById('info').innerHTML = "Text changed";
 }
 </script>
 
-<!-- Scripts -->
-<!-- <script src="{{ asset('js/functionality.js')}}"></script> -->
 @endpush
 
 @section('content')
@@ -31,64 +30,42 @@ function toggleInteriorColor(x)
 
 <div class="palette">
   <h1>Interior Color</h1>
-
-  <button id="redI" class="colorButton" style="background:red;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="blueI" class="colorButton" style="background:blue;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="brownI" class="colorButton" style="background:brown;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="tanI" class="colorButton" style="background:tan;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="whiteI" class="colorButton" style="background:white; color:black;" onclick="toggleInteriorColor(this)">
-  </button>
+  @foreach($inside_colors as $color)
+      <button id="{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleInteriorColor(this)">
+      </button>
+  @endforeach
 </div>
 
 <div class="palette">
   <h1>Exterior Color</h1>
-
-  <button id="redO" class="colorButton" style="background:red;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="blueO" class="colorButton" style="background:blue;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="yellowO" class="colorButton" style="background:yellow; color:black;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="blackO" class="colorButton" style="background:black;" onclick="toggleInteriorColor(this)">
-  </button>
-
-  <button id="whiteO" class="colorButton" style="background:white; color:black;" onclick="toggleInteriorColor(this)">
-  </button>
+  @foreach($outside_colors as $color)
+      <button id="{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleInteriorColor(this)">
+      </button>
+  @endforeach
 </div>
 
 <?php // DEBUG: using this to see if it changes anything ?>
-<div id="info"></div>
+<div id="info"> here is some text </div>
 
 <form method="get" action="/cars/{{$car->id}}/colors">
     {{csrf_field()}}
 
-    <!-- <input type="hidden" id='inside_color_id'>
-    <input type="hidden" id='outside_color_id'> -->
+    <input type="hidden" value="{{$inside_colors->first()->id}}" name="inside_color_id">
+    <input type="hidden" value="{{$outside_colors->first()->id}}" name="outside_color_id">
 
     <!-- Functional Code -->
-    <select name='inside_color_id'>
+    <!-- <select name='inside_color_id'>
         @foreach($inside_colors as $color)
             <option value="{{$color->id}}">{{$color->color}}</option>
         @endforeach
-    </select>
+    </select>-->
 
     <!-- Functional Code -->
-    <select name='outside_color_id'>
+    <!-- <select name='outside_color_id'>
         @foreach($outside_colors as $color)
             <option value="{{$color->id}}">{{$color->color}}</option>
         @endforeach
-    </select>
+    </select> -->
 
     <button type="submit" class="btn btn-primary">
         View the Car
