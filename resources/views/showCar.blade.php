@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<?php // TODO: Get rid of Laravel in the corner ?>
-
 @section('title')
 Choose Colors
 @endsection
@@ -12,11 +10,15 @@ Choose Colors
 function toggleInteriorColor(x)
 {
   x.style.border = "4px solid black";
+  document.getElementById("I"+document.getElementById('inside_color_id').value).style.border = "2px solid black";
+  document.getElementById('inside_color_id').value = x.id.slice(1);
+}
 
-  <?php // TODO: Why doesn't this work plz kill me ?>
-  document.getElementByName(document.getElementByName('inside_color_id').innerHTML).border = "2px solid black";
-  document.getElementByName('inside_color_id').innerHTML = x.id;
-  document.getElementById('info').innerHTML = "Text changed";
+function toggleExteriorColor(x)
+{
+  x.style.border = "4px solid black";
+  document.getElementById("O"+document.getElementById('outside_color_id').value).style.border = "2px solid black";
+  document.getElementById('outside_color_id').value = x.id.slice(1);
 }
 </script>
 
@@ -31,7 +33,7 @@ function toggleInteriorColor(x)
 <div class="palette">
   <h1>Interior Color</h1>
   @foreach($inside_colors as $color)
-      <button id="{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleInteriorColor(this)">
+      <button id="I{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleInteriorColor(this)">
       </button>
   @endforeach
 </div>
@@ -39,37 +41,20 @@ function toggleInteriorColor(x)
 <div class="palette">
   <h1>Exterior Color</h1>
   @foreach($outside_colors as $color)
-      <button id="{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleInteriorColor(this)">
+      <button id="O{{$color->id}}" class="colorButton" style="background:{{$color->color}};" onclick="toggleExteriorColor(this)">
       </button>
   @endforeach
 </div>
 
-<?php // DEBUG: using this to see if it changes anything ?>
-<div id="info"> here is some text </div>
-
 <form method="get" action="/cars/{{$car->id}}/colors">
     {{csrf_field()}}
 
-    <input type="hidden" value="{{$inside_colors->first()->id}}" name="inside_color_id">
-    <input type="hidden" value="{{$outside_colors->first()->id}}" name="outside_color_id">
-
-    <!-- Functional Code -->
-    <!-- <select name='inside_color_id'>
-        @foreach($inside_colors as $color)
-            <option value="{{$color->id}}">{{$color->color}}</option>
-        @endforeach
-    </select>-->
-
-    <!-- Functional Code -->
-    <!-- <select name='outside_color_id'>
-        @foreach($outside_colors as $color)
-            <option value="{{$color->id}}">{{$color->color}}</option>
-        @endforeach
-    </select> -->
+    <input type="hidden" name='inside_color_id' value="{{$inside_colors->first()->id}}" id="inside_color_id">
+    <input type="hidden" name='outside_color_id' value="{{$outside_colors->first()->id}}" id="outside_color_id">
 
     <button type="submit" class="btn btn-primary">
         View the Car
     </button>
-
 </form>
+
 @endsection

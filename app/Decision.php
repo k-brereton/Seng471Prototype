@@ -20,4 +20,10 @@ class Decision extends Model
     public function car(){
         return $this->belongsTo('App\Car');
     }
+    public function inside_color(){
+        return $this->belongsTo('App\InsideColor');
+    }
+    public function outside_color(){
+         return $this->belongsTo('App\OutsideColor');
+     }
 }

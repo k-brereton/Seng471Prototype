@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<?php // TODO: Get rid of Laravel in the corner ?>
-
 @section('title')
 View Vehicle
 @endsection
@@ -23,7 +21,6 @@ View Vehicle
 </div>
 
 <?php // TODO: Put buttons side by side?>
-<?php // TODO: Hover over outside image and see inside image?>
 
 <form action="/cars/{{$car->id}}/decision" method="post">
     {{csrf_field()}}

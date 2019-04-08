@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<?php // TODO: Get rid of Laravel in the corner ?>
-
 @section('title')
 Decision
 @endsection
@@ -14,15 +12,12 @@ Decision
 
 <div>
   <div class="carView">
-    <img src="{{$outside_color->image_url}}">
+    <img src="{{$decision->outside_color->image_url}}">
   </div>
 
   <div class="carView">
-    <img src="{{$inside_color->image_url}}">
+    <img src="{{$decision->inside_color->image_url}}">
   </div>
 </div>
 
-<h1> car name: {{$car->name}}</h1>
-
-<h1> decision id {{$decision->id}}</h1>
 @endsection

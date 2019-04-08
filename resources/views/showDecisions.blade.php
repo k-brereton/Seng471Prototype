@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<?php // TODO: Get rid of Laravel in the corner ?>
-
 @section('title')
 Show Decisions
 @endsection
@@ -13,6 +11,7 @@ Show Decisions
 </button>
 
   @foreach($decisions as $decision)
-    <a href="/decisions/{{$decision->id}}"><h1>{{$decision->car->name}}</h1></a>
+    <a href="/decisions/{{$decision->id}}"><h1>{{$decision->id}} - {{$decision->car->name}}</h1></a>
   @endforeach
+
 @endsection
